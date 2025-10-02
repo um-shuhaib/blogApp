@@ -17,8 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Blog import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("register",views.UserRegView.as_view(),name="register"),
     path("home",views.HomeView.as_view(),name="home"),
-]
+    path("login",views.LoginView.as_view(),name="login"),
+    path("writer",views.Writerhome.as_view(),name="writer"),
+    path("create",views.CreateView.as_view(),name="create"),
+    path("reader",views.ReaderHome.as_view(),name="reader"),
+    path("delete/<int:id>",views.DeleteView.as_view(),name="delete"),
+
+
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
