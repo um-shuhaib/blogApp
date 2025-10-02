@@ -1,31 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'starter-page.html' %}
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Bootstrap CSS -->
-    <!-- https://cdnjs.com/libraries/twitter-bootstrap/5.0.0-beta1 -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css" />
-
-    <!-- Icons: https://getbootstrap.com/docs/5.0/extend/icons/ -->
-    <!-- https://cdnjs.com/libraries/font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-
-    <title>Hello, world!</title>
-</head>
-
-<body class="d-flex flex-column vw-100 vh-100 align-items-center justify-content-center bg-info">
-
-<div class="p-5 bg-primary text-light">
-    <h2>USER REGISTRATION</h2>
+{% block main %}
+<div class="container mt-5 d-flex flex-column justify-content-center align-items-cente">
+    <h2 >USER REGISTRATION</h2>
         <form action="" method="post">
         {% csrf_token %}
-        <div class="d-flex flex-column justify-content-center align-items-center text-light">
-            <label for="" class="form-label">Name</label>
+        <div class="d-flex flex-column justify-content-center">
+            <label for="" class="form-label mt-3">Name</label>
             {{form.first_name}}
             <label for="" class="form-label">Username</label>
             {{form.username}}
@@ -34,29 +15,8 @@
             <label for="" class="form-label">Email ID</label>
             {{form.email}}
         </div>
-        <div class="container p-5 d-flex flex-column justify-content-center align-items-center">
-            <input type="submit" class="btn btn-success">
-        </div>
+        <input type="submit" class="btn btn-success mt-3 mb-5">
+        
     </form>
 </div>
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-
-    <!-- https://cdnjs.com/libraries/popper.js/2.5.4 -->
-    <!-- <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js"
-    ></script> -->
-
-    <!-- More: https://getbootstrap.com/docs/5.0/getting-started/introduction/ -->
-</body>
-
-</html>
+{% endblock %}

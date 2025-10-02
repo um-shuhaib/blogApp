@@ -24,7 +24,8 @@ class UserRegView(View):
         
 class HomeView(View):
     def get(self,request):
-        return render(request,"blog.html")
+        user=User.objects.all()
+        return render(request,"index.html",{"user":user})
     
 
 class LoginView(View):
@@ -51,11 +52,13 @@ class LoginView(View):
         
 class Writerhome(View):
     def get(self,request):
+        user=request.user
         blog=Blog.objects.filter(user_id=request.user)
-        return render(request,"writer_home.html",{"blog":blog})
+        return render(request,"writer_home.html",{"blog":blog,"user":user})
 class ReaderHome(View):
     def get(self,request):
         blog=Blog.objects.all()
+        
         return render(request,"reader_home.html",{"blog":blog})
     
 

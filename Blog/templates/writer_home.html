@@ -2,25 +2,36 @@
 {% load static %}
 
 {% block main %}
-<main class="main">
+<main class="main d-flex flex-column justify-content-center align-items-center">
 
-    <!-- Page Title -->
-    <div class="page-title">
-        <div class="heading">
-            <div class="container">
-                <div class="row d-flex justify-content-center text-center">
-                    <div class="col-lg-8">
-                        <h1 class="heading-title">Blog</h1>
-                        <p class="mb-0">
-                            A good blog provides consistent, valuable content focused on the reader's needs and
-                            problems, presented with a strong, engaging headline and organized for clarity. It builds a
-                            connection with the audience through a clear voice and purpose, ensuring readers find
-                            solutions and a reason to return.
-                        </p>
-                    </div>
+    <!-- profile -->
+    <div class="row mt-5 container w-100">
+        <div class="col-lg-12 w-100">
+            <h1 class="text-center">Profile</h1>
+            <div class="row mt-5">
+                <div class="w-50 col-6">
+                <img src="{% static  'assets/img/person/person-m-8.webp' %}" style="width: 300px;height: 300px;">
+                
+            </div>
+            <div class="col-6 d-flex flex-column text-start justify-content-center">
+                <p> <span class="fw-bold">Username :</span> {{user.username}}</p>
+                <p><span class="fw-bold">Name :</span> {{user.first_name}}</p>
+                <p><span class="fw-bold">Email :</span> {{user.email}}</p>
+                <div>
+                    
+                    <a href="{% url 'create' %}" class="btn btn-primary">Add Blog</a>
+                    <a href="#" class="btn btn-primary">Update Profile</a>
                 </div>
+
+            </div>
             </div>
         </div>
+
+    </div>
+    <!-- end profile  -->
+    <!-- Page Title -->
+    <div class="page-title">
+
         <nav class="breadcrumbs">
             <div class="container">
                 <ol>
@@ -31,11 +42,14 @@
         </nav>
     </div><!-- End Page Title -->
 
-    <!-- Blog Posts Section -->
-    <div class="d-flex flex-column justify-content-center align-items-center">
 
-        <a href="{% url 'create' %}" class="btn btn-primary">add blog</a>
-    </div>
+
+
+
+
+
+    <!-- Blog Posts Section -->
+ 
     <section id="blog-posts" class="blog-posts section">
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
