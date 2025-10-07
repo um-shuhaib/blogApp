@@ -2733,6 +2733,11 @@ section,
   align-items: center;
   justify-content: space-between;
 }
+.recent-posts .post-comment {
+  display: flex;
+  align-items: center;
+  
+}
 
 .recent-posts .author-info {
   display: flex;

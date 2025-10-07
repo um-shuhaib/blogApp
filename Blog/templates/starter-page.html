@@ -10,7 +10,7 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/image.png' %}" rel="icon">
   <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -50,7 +50,7 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero">Home</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
           <!-- <li><a href="#about">About</a></li> -->
           <!-- <li><a href="#services">Services</a></li> -->
           <!-- <li><a href="#portfolio">Portfolio</a></li> -->
@@ -78,7 +78,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <!-- <a class="cta-btn" href="#about">Get Started</a> -->
+      <a class="cta-btn" href="{% url 'logout' %}">Log Out</a>
 
     </div>
   </header>

@@ -29,6 +29,10 @@ urlpatterns = [
     path("create",views.CreateView.as_view(),name="create"),
     path("reader",views.ReaderHome.as_view(),name="reader"),
     path("delete/<int:id>",views.DeleteView.as_view(),name="delete"),
+    path("update/<int:id>",views.UpdateBlogView.as_view(),name="update"),
+    path("update_profile/<int:id>",views.UpdateProfileView.as_view(),name="update_profile"),
+    path("viewblog/<int:id>",views.ViewMoreView.as_view(),name="viewblog"),
+    path("logout",views.LogoutView.as_view(),name="logout"),
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

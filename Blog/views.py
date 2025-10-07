@@ -4,7 +4,7 @@ from Blog.forms import UserRegForm,LoginForm,CreateForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
-from Blog.models import Blog
+from Blog.models import Blog,Comment
 
 # Create your views here.
 class UserRegView(View):
@@ -81,3 +81,61 @@ class DeleteView(View):
         messages.warning(request,"blog deleted")
         return redirect("writer")
             
+class UpdateBlogView(View):
+    def get(self,request,**kwargs):
+        blog=Blog.objects.get(id=kwargs.get("id"))
+        form=CreateForm(instance=blog)
+        return render(request,"update_blog.html",{"form":form})
+    def post(self,request,**kwargs):
+        blog=Blog.objects.get(id=kwargs.get("id"))
+        form_instance=CreateForm(request.POST,instance=blog)
+        if form_instance.is_valid():
+            form_instance.save()
+            messages.success(request,"Blog Updated successfully")
+            return redirect("writer")
+        else:
+            messages.error(request,"Somthing Wrong")
+            return redirect("writer")
+
+
+class UpdateProfileView(View):
+    def get(self,request,**kwargs):
+        user=User.objects.get(id=kwargs.get("id"))
+        form=UserRegForm(instance=user)
+        return render(request,"update_profile.html",{"form":form})
+    def post(self,request,**kwargs):
+        user=User.objects.get(id=kwargs.get("id"))
+        form=UserRegForm(request.POST,instance=user)
+        if form.is_valid():
+            form.save()
+            # User.objects.create_user(**form.cleaned_data)
+            messages.success(request,"profile updated succesfully")
+            return redirect("writer")
+        else:
+            messages.error(request,"somthing went wrong")
+            return redirect("update_profile")
+            
+
+        
+
+class ViewMoreView(View):
+    def get(self,request,**kwargs):
+        blog=Blog.objects.get(id=kwargs.get("id"))
+        comment=Comment.objects.filter(blog=kwargs.get("id"))
+        
+        return render(request,"blog-details.html",{"blog":blog,"comment":comment})
+    def post(self,request,**kwargs):
+        user=request.user
+        blog=Blog.objects.get(id=kwargs.get("id"))
+        comment=request.POST.get("comment")
+        Comment.objects.create(comment=comment,user=user,blog=blog)
+        messages.success(request,"comment added")
+        return redirect("viewblog",id=blog.id)
+
+
+
+class LogoutView(View):
+    def get(self,request):
+        logout(request)
+        messages.warning(request,"Logout")
+        return redirect("login")
