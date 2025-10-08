@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.views import View
-from Blog.forms import UserRegForm,LoginForm,CreateForm
+from Blog.forms import UserRegForm,LoginForm,CreateForm,UpdateForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
@@ -101,11 +101,11 @@ class UpdateBlogView(View):
 class UpdateProfileView(View):
     def get(self,request,**kwargs):
         user=User.objects.get(id=kwargs.get("id"))
-        form=UserRegForm(instance=user)
+        form=UpdateForm(instance=user)
         return render(request,"update_profile.html",{"form":form})
     def post(self,request,**kwargs):
         user=User.objects.get(id=kwargs.get("id"))
-        form=UserRegForm(request.POST,instance=user)
+        form=UpdateForm(request.POST,instance=user)
         if form.is_valid():
             form.save()
             # User.objects.create_user(**form.cleaned_data)

@@ -50,12 +50,11 @@
 
               <div class="meta-top">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">{{
-                      blog.user_id }}</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html">{{
-                      blog.added_date }}</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12
-                      Comments</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">{{ blog.user_id }}</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#">{{ blog.added_date }}</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">  
+                    {{ blog.comment_set.count }} Comment{% if blog.comment_set.count != 1 %}s{% endif %}
+                  </a></li>
                 </ul>
               </div><!-- End meta top -->
 
@@ -99,7 +98,7 @@
 
           <div class="container">
 
-            <h4 class="comments-count">8 Comments</h4>
+            <h4 class="comments-count"> {{ blog.comment_set.count }} Comment{% if blog.comment_set.count != 1 %}s{% endif %}</h4>
 
             {% for i in comment %}
             <div id="comment-1" class="comment">

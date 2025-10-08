@@ -10,7 +10,7 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/image.png' %}" rel="icon">
   <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -42,7 +42,7 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <a href="{% url 'home' %}" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="{% static 'assets/img/logo.webp' %}" alt=""> -->
         <h1 class="sitename">Blog</h1><span>.</span>
@@ -55,7 +55,7 @@
           <!-- <li><a href="#services">Services</a></li> -->
           <!-- <li><a href="#portfolio">Portfolio</a></li> -->
           <!-- <li><a href="#pricing">Pricing</a></li> -->
-          <li><a href="blog.html">Authers</a></li>
+          <li><a href="#team">Authors</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Dropdown 1</a></li>
@@ -152,8 +152,8 @@
 
       <!-- Section Title -->
       <div class="container section-title">
-        <h2>Auther</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Author</h2>
+        <p>An author is the originator and creator of a work, such as a book, article, or any intellectual or creative output.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -192,7 +192,7 @@
       <!-- Section Title -->
       <div class="container section-title">
         <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Contact details are information like a name, phone number, email address, or physical address that allows someone to reach or communicate with a person or organization. </p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
