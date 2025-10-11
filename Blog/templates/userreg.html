@@ -1,11 +1,11 @@
 {% extends 'starter-page.html' %}
 
 {% block main %}
-<div class="container mt-5 d-flex flex-column justify-content-center align-items-cente vh-100">
-    <h2 >USER REGISTRATION</h2>
+<div class="d-flex flex-column vh-100 justify-content-center align-items-center"">
+    <h2 class=" h1 font-monospace">USER REGISTRATION</h2>
+    <div class="w-50">
         <form action="" method="post">
-        {% csrf_token %}
-        <div class="d-flex flex-column justify-content-center">
+            {% csrf_token %}
             <label for="" class="form-label mt-3">Name</label>
             {{form.first_name}}
             <label for="" class="form-label">Username</label>
@@ -15,10 +15,11 @@
             <label for="" class="form-label">Email ID</label>
             {{form.email}}
         </div>
-        <input type="submit" class="btn btn-success mt-3">
-        
-    </form>
-    <p class="pt-3 mb-5">Already registered ? click <a href="{% url 'login' %} " style="text-decoration: none;">here</a></p>
+            <input type="submit" class="btn btn-success mt-3">
+            
+        </form>
+    <p class="pt-3 mb-5">Already registered ? click <a href="{% url 'login' %} " style="text-decoration: none;">here</a>
+    </p>
 
 </div>
 {% endblock %}

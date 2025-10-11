@@ -2,22 +2,24 @@
 
 
 {% block main %}
-<div class="container d-flex flex-column justify-content-center  vh-100">
-<h1 class="mb-3 ">Log in</h1>
-    <form action="" method="post">
-    {% csrf_token %}
-    
-        <label for="" class="form-label">Username</label>
-        {{form.username}}
-        <label for="" class="form-label">Password</label>
-        {{form.password}}
-        <label for="" class="form-label">User Type</label>
-        {{form.usertype}}
-        
-        <input type="submit" class="btn btn-success mt-3">
-    
-</form>
-<p class="pt-3">Not registered ? click <a href="{% url 'register' %} " style="text-decoration: none;">here</a></p>
+<div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    <h1 class="h1 font-monospace">Log in</h1>
+    <div class="w-50">
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <label for="" class="form-label">Username</label>
+            {{form.username}}
+            <label for="" class="form-label">Password</label>
+            {{form.password}}
+            <label for="" class="form-label">User Type</label>
+            {{form.usertype}}
+
+        </div>
+            <input type="submit" class="btn btn-success mt-3">
+
+        </form>
+    <p class="pt-3">Not registered ? click <a href="{% url 'register' %} " style="text-decoration: none;">here</a></p>
 </div>
 
 {% endblock %}
