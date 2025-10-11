@@ -88,12 +88,13 @@ class UpdateBlogView(View):
         return render(request,"update_blog.html",{"form":form})
     def post(self,request,**kwargs):
         blog=Blog.objects.get(id=kwargs.get("id"))
-        form_instance=CreateForm(request.POST,instance=blog)
+        form_instance=CreateForm(request.POST,request.FILES,instance=blog)
         if form_instance.is_valid():
             form_instance.save()
             messages.success(request,"Blog Updated successfully")
             return redirect("writer")
         else:
+            print(form_instance.errors)
             messages.error(request,"Somthing Wrong")
             return redirect("writer")
 

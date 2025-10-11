@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Blog(models.Model):
     title=models.CharField(max_length=200)
     content=models.TextField()
-    blog_pic=models.ImageField(upload_to="media",default="media/no_image.png")
+    blog_pic=models.ImageField(upload_to="blogs/",default="media/no_image.png",null=True,blank=True)
     added_date=models.DateField(auto_now_add=True)
     user_id=models.ForeignKey(User,on_delete=models.CASCADE)
 
@@ -19,4 +19,4 @@ class Comment(models.Model):
     blog=models.ForeignKey(Blog,on_delete=models.CASCADE)
     added_date=models.DateField(auto_now_add=True)
 
-    
+
